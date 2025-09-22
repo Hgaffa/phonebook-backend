@@ -1,11 +1,9 @@
 const express = require("express");
 
 var morgan = require("morgan");
-var cors = require("cors");
 
 const app = express();
 
-app.use(cors());
 app.use(express.static("dist"));
 app.use(express.json());
 
@@ -101,7 +99,7 @@ app.post("/api/persons", (request, response) => {
     }
 
     const person = {
-        id: getRandomId(1000),
+        id: String(getRandomId(1000)),
         name: body.name,
         number: body.number,
     };
